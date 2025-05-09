@@ -6,9 +6,8 @@ import { fetchBinanceOpenInterest } from "./open-interest/binance/fetch-binance-
 import { fetchBybitOpenInterest } from "./open-interest/bybit/fetch-bybit-open-interest.ts";
 import { notifyAboutErrors } from "./shared/notifly-about-errors.ts";
 
-export async function processDayOpenInterest() {
+export async function processDayOpenInterest(limit: number) {
   const timeframe = TF.D;
-  const limit = 53;
   const { binanceCoins, bybitCoins } = await fetchBybitDominantCoins();
 
   const binanceResult = await fetchBinanceOpenInterest(

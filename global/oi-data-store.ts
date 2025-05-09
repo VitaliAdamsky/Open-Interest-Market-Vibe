@@ -25,7 +25,7 @@ export class OpenInterestDataStore {
 
   public static async updateData(timeframe: TF): Promise<void> {
     if (timeframe === TF.D) {
-      const oiData = await processDayOpenInterest();
+      const oiData = await processDayOpenInterest(this.limit);
       OpenInterestDataStore.data[timeframe] = oiData;
       logger.info(
         `OpenInterestDataStore ---> Data fetched and stored for timeframe: ${timeframe}`,
